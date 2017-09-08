@@ -39,9 +39,11 @@ img{
     text-align: center;
     padding: 20px;
     margin: 5px;
-    background-color: blue;
+    background-color: greenyellow;
 
 }
 body{
     background-image:url("../images/giphy.gif");
+    font-weight: bolder;
+    font-size: larger;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "http://moviethemes.net/music/LOTR/Lord_Of_The_Rings__Main_Title_Theme.mp3");
+    audioElement.setAttribute("src", "assets/music/trivia.mp3");
     audioElement.loop = true;
     audioElement.play();
 
