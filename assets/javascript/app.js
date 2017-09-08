@@ -187,9 +187,9 @@ $(document).ready(function () {
             if (quesCount < 4) {
                 audio("assets/music/good.mp3");
                 clearInterval(uniqueInterval);
-                setTimeout(clean, 3000);
-                setTimeout(setRemTime, 2900);
-                setTimeout(whichQuestion, 3000);
+                setTimeout(clean, 4000);
+                setTimeout(setRemTime, 4000);
+                setTimeout(whichQuestion, 4000);
 
 
             }
@@ -207,9 +207,9 @@ $(document).ready(function () {
             if (quesCount < 4) {
                 audio("assets/music/laugh.mp3");
                 clearInterval(uniqueInterval);
-                setTimeout(clean, 3000);
-                setTimeout(setRemTime, 2900);
-                setTimeout(whichQuestion, 3000);
+                setTimeout(clean, 4000);
+                setTimeout(setRemTime, 4000);
+                setTimeout(whichQuestion, 4000);
 
 
             }
