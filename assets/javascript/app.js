@@ -97,7 +97,7 @@ var startTimer =function(){
     }
     else{
         --remTime;
-     document.getElementById('timer').innerHTML = "Time Remaining: " + remTime +"s" ;
+       document.getElementById('timer').innerHTML = "Time Remaining: " + remTime +"s" ;
     }
 };
 
@@ -117,6 +117,7 @@ var showQuestion = function (question, showlocation) {
     }
     quesDiv.append(optsDiv);
     $(showlocation).append($("<div><span id=\"timer\"></span></div>")).append(quesDiv);
+
 };
 
 var whichQuestion = function(){
@@ -136,50 +137,53 @@ $("#start").on("click",function () {
 
 
 
-    $(".mainSection").on("click", ".opts", function () {
-        var pick = $(this).attr("value");
-        var ans = $(this).attr("id");
-        var gifPick = $(this).attr("number");
-        console.log(gifPick);
-        quesCount++;
-        console.log(cur);
+$(".mainSection").on("click", ".opts", function () {
+    var pick = $(this).attr("value");
+    var ans = $(this).attr("id");
+    var gifPick = $(this).attr("number");
+    console.log(gifPick);
+    quesCount++;
+    console.log(cur);
 
-        if (pick === ans) {
-            console.log(pick);
-            clearInterval(xxx);
-            cAnswers++;
-            clean();
-            console.log(questions[gifPick].gRight);
-            var gif = $("<img class='img-responsive img-thumbnail img-circle right-image' alt='image'>").attr("src", questions[gifPick].gRight);
-            rightPick(gif);
-            if (quesCount < 4) {
-                setTimeout(clean, 3000);
-                setTimeout(setRemTime, 3000);
-                setTimeout(whichQuestion, 3000);
+    if (pick === ans) {
+        console.log(pick);
+        clearInterval(xxx);
+        cAnswers++;
+        clean();
+        console.log(questions[gifPick].gRight);
+        var gif = $("<img class='img-responsive img-thumbnail img-circle right-image' alt='image'>").attr("src", questions[gifPick].gRight);
+        rightPick(gif);
+        if (quesCount < 4) {
+            clearInterval(uniqueInterval);
+            setTimeout(clean, 3000);
+            setTimeout(setRemTime, 3000);
+            setTimeout(whichQuestion, 3000);
 
 
-            }
-            else{
-                setTimeout(finalMessage,4000);
-            }
         }
-        else {
-            clean();
-            iAnswers++
-            var gif = $("<img class='img-responsive img-thumbnail img-circle wrong-image' alt='image'>").attr("src", questions[gifPick].gWrong);
-            wrongPick(ans,gif);
-            if (quesCount < 4) {
-                setTimeout(clean, 3000);
-                setTimeout(setRemTime, 3000);
-                setTimeout(whichQuestion, 3000);
-
-
-            }
-            else{
-                setTimeout(finalMessage,4000);
-            }
+        else{
+            clearInterval(uniqueInterval);
+            setTimeout(finalMessage,4000);
         }
+    }
+    else {
+        clean();
+        iAnswers++
+        var gif = $("<img class='img-responsive img-thumbnail img-circle wrong-image' alt='image'>").attr("src", questions[gifPick].gWrong);
+        wrongPick(ans,gif);
+        if (quesCount < 4) {
+            clearInterval(uniqueInterval);
+            setTimeout(clean, 3000);
+            setTimeout(setRemTime, 3000);
+            setTimeout(whichQuestion, 3000);
 
 
-    })
+        }
+        else{
+            clearInterval(uniqueInterval);
+            setTimeout(finalMessage,4000);
+        }
+    }
 
+
+})
