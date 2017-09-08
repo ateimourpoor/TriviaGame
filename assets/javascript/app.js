@@ -44,9 +44,11 @@ var remTime = 25;
 var cur ="";
 var setRemTime = function(){
     remTime =26;
+    uniqueInterval = setInterval(startTimer,1000);
+
 };
-var timeStart = setInterval(startTimer,1000);
-var timeStop = clearInterval(timeStart);
+//var timeStart = setInterval(startTimer,1000);
+//var timeStop = clearInterval(timeStart);
 //document.getElementById('timer').innerHTML = 25 ;
 var finalMessage = function() {
     clean();
@@ -80,8 +82,9 @@ var startTimer =function(){
         var gif = $("<img class='img-responsive img-thumbnail img-circle wrong-image' alt='image'>").attr("src", questions[cur].gWrong);
         $(".mainSection").append(gif);
         noPick(questions[cur].javab,gif)
-        clearInterval(timeStart);
+        //clearInterval(timeStart);
         if (quesCount < 4) {
+            clearInterval(uniqueInterval);
             setTimeout(clean, 3000);
             setTimeout(setRemTime, 3000);
             setTimeout(whichQuestion, 3000);
@@ -129,12 +132,26 @@ $("#start").on("click",function () {
     document.getElementById('timer').innerHTML ="Time Remaining: " + 25 +"s";
     quesCount= 0;
     //setInterval(startTimer,1000);
-    uniqueInterval = setInterval(startTimer,1000); // hoisting
-
+    //uniqueInterval = setInterval(startTimer,1000); // hoisting
+    setRemTime();
     whichQuestion();
     $("#start").remove();
 });
 
+/*$("#restart").on("click",function () {
+    document.getElementById('timer').innerHTML ="Time Remaining: " + 25 +"s";
+    quesCount= 0;
+    clean();
+    //uniqueInterval = setInterval(startTimer,1000);
+    whichQuestion();
+});*/
+$(".mainSection").on("click", "#restart", function () {
+    document.getElementById('timer').innerHTML ="Time Remaining: " + 25 +"s";
+    quesCount= 0;
+    clean();
+    setRemTime();
+    whichQuestion();
+});
 
 
 $(".mainSection").on("click", ".opts", function () {
@@ -156,7 +173,7 @@ $(".mainSection").on("click", ".opts", function () {
         if (quesCount < 4) {
             clearInterval(uniqueInterval);
             setTimeout(clean, 3000);
-            setTimeout(setRemTime, 3000);
+            setTimeout(setRemTime, 2900);
             setTimeout(whichQuestion, 3000);
 
 
@@ -174,7 +191,7 @@ $(".mainSection").on("click", ".opts", function () {
         if (quesCount < 4) {
             clearInterval(uniqueInterval);
             setTimeout(clean, 3000);
-            setTimeout(setRemTime, 3000);
+            setTimeout(setRemTime, 2900);
             setTimeout(whichQuestion, 3000);
 
 
