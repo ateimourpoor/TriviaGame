@@ -1,0 +1,47 @@
+#buttons {
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+}
+#restart{
+    width: 200px;
+    height: 50px;
+}
+.jumbotron{
+    text-align: center;
+    margin: 200px;
+    background-color: #4aaaa5;
+
+}
+.final{
+    margin: 10px;
+    padding: 10px;
+}
+#timer{
+    text-align: center;
+    margin: 200px;
+}
+img{
+    text-align: center;
+}
+.opts {
+    text-align: center;
+    padding: 20px;
+    margin: 5px;
+    background-color: red;
+
+}
+
+.question{
+    text-align: center;
+    padding: 20px;
+    margin: 5px;
+    background-color: blue;
+
+}
+body{
+    background-image:url("../images/giphy.gif");
+}
